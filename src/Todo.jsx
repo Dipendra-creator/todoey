@@ -23,6 +23,11 @@ function Todoey() {
         }
     };
 
+    const something=(event)=> {
+        if (event.keyCode === 13) {
+            onAddTodo()
+        }
+    }
     const deleteTodo = (id) => {
         let newTodos = todos.filter((todo) => todo.id !== id);
         setTodos(newTodos);
@@ -43,6 +48,7 @@ function Todoey() {
                             placeholder="Add todo"
                             value={newTodo}
                             onChange={(e) => setNewTodo(e.target.value)}
+                            onKeyDown={(e) => something(e)}
                         />
                     </th>
                     <th>
